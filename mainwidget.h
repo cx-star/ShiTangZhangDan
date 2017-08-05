@@ -19,11 +19,14 @@ public:
 private slots:
     void on_pushButtonOpen_clicked();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::MainWidget *ui;
 
     ExcelBase *m_xls;
     QList< QList<QVariant> > m_datas;
+    void debugText(const QString& s);
 };
 
 #endif // MAINWIDGET_H

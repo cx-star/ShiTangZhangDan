@@ -495,12 +495,15 @@ bool ExcelBase::writeCurrentSheet(const QList<QList<QVariant> > &cells)
     QAxObject *range = d->sheet->querySubObject("Range(const QString&)",rangStr);
     if(NULL == range || range->isNull())
     {
+        qDebug()<<"error range";
         return false;
     }
     bool succ = false;
     QVariant var;
     castListListVariant2Variant(cells,var);
-    succ = range->setProperty("Value", var);
+    qDebug()<<var;
+    succ = range->setProperty("Value2", var);
+    //range->dynamicCall("SetValue()",var);
     delete range;
     return succ;
 #else

@@ -35,7 +35,7 @@ void MainWidget::on_pushButtonOpen_clicked()
 
     debugText(QString("读取完毕：%1列，%2行").arg(m_datas.at(0).size()).arg(m_datas.size()));
 
-//    foreach (QList<QVariant> OneClumn, m_datas) {
+//    foreach (QList<QVariant> OneClumn, m_datas) {//
 //        foreach (QVariant v, OneClumn) {
 //            qDebug()<<v.toString()<<"\t";
 //        }

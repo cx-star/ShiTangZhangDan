@@ -1,4 +1,4 @@
-#include "ExcelBase.h"
+﻿#include "ExcelBase.h"
 #include <QFile>
 
 #include <QList>

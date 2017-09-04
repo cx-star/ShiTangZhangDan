@@ -26,7 +26,7 @@ private:
 
     ExcelBase *m_xls;
     QList< QList<QVariant> > m_datas;
-    void debugText(const QString& s);
+    void myDebugText(const QString& s);
 };
 
 #endif // MAINWIDGET_H

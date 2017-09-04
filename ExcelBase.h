@@ -1,4 +1,4 @@
-#ifndef EXCELREADER_H
+﻿#ifndef EXCELREADER_H
 #define EXCELREADER_H
 #include <QObject>
 #include <QAxObject>

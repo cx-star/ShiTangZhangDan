@@ -1,4 +1,4 @@
-#include <QRegExp>
+﻿#include <QRegExp>
 #include <QDateTime>
 #include <QDebug>
 #include <QElapsedTimer>
@@ -22,18 +22,18 @@ MainWidget::~MainWidget()
 void MainWidget::on_pushButtonOpen_clicked()
 {
     QString xlsFile = QFileDialog::getOpenFileName(this,QString(),QString(),"excel(*.xls *.xlsx)");
-    debugText(xlsFile);
+    myDebugText(xlsFile);
     if(xlsFile.isEmpty())
         return;
 
     m_xls->open(xlsFile);
 
-    debugText("sheetNames "+m_xls->sheetNames().join(";"));
+    myDebugText("sheetNames "+m_xls->sheetNames().join(";"));
     m_xls->setCurrentSheet(1);
     m_datas.clear();
     m_xls->readAll(m_datas);//QList< QList<QVariant> >
 
-    debugText(QString("读取完毕：%1列，%2行").arg(m_datas.at(0).size()).arg(m_datas.size()));
+    myDebugText(QString("读取完毕：%1列，%2行").arg(m_datas.at(0).size()).arg(m_datas.size()));
 
 //    foreach (QList<QVariant> OneClumn, m_datas) {//
 //        foreach (QVariant v, OneClumn) {
@@ -97,25 +97,25 @@ void MainWidget::on_pushButtonOpen_clicked()
                 break;
             }
         }
-        debugText("提取完毕："+(type==Xin)?"新":"旧");
+        myDebugText("提取完毕："+(type==Xin)?"新":"旧");
         qDebug()<<numInDate5;
         qDebug()<<numInDate10;
         qDebug()<<numInDate0;
         qDebug()<<numInDate_;
-        debugText(QString("数量 %1").arg(newDatas.size()));
-        debugText("第一 "+newDatas.at(0).at(0).toString()+"  "+newDatas.at(0).at(1).toString()+"  "+newDatas.at(0).at(2).toString());
-        debugText("最后 "+newDatas.at(newDatas.size()-1).at(0).toString()+"  "+newDatas.at(newDatas.size()-1).at(1).toString()+"  "+newDatas.at(newDatas.size()-1).at(2).toString());
+        myDebugText(QString("数量 %1").arg(newDatas.size()));
+        myDebugText("第一 "+newDatas.at(0).at(0).toString()+"  "+newDatas.at(0).at(1).toString()+"  "+newDatas.at(0).at(2).toString());
+        myDebugText("最后 "+newDatas.at(newDatas.size()-1).at(0).toString()+"  "+newDatas.at(newDatas.size()-1).at(1).toString()+"  "+newDatas.at(newDatas.size()-1).at(2).toString());
 
-        debugText(QString("日期\t5\t10\t0\t*"));
+        myDebugText(QString("日期\t5\t10\t0\t*"));
         foreach (QString s, dateList) {
-            debugText(QString("'%1\t%2\t%3\t%4\t%5").arg(s)
+            myDebugText(QString("'%1\t%2\t%3\t%4\t%5").arg(s)
                       .arg(numInDate5[s])
                       .arg(numInDate10[s])
                       .arg(numInDate0[s])
                       .arg(numInDate_[s])
                       );
         }
-        debugText(QString("合计\t%1\t%2\t%3\t%4")
+        myDebugText(QString("合计\t%1\t%2\t%3\t%4")
                   .arg(ALL5)
                   .arg(ALL10)
                   .arg(ALL0)
@@ -157,9 +157,9 @@ void MainWidget::on_pushButtonOpen_clicked()
     }
     bool b;
     b=m_xls->setCurrentSheet(2);
-    debugText(QString("setCurrentSheet %1").arg(b));
+    myDebugText(QString("setCurrentSheet %1").arg(b));
     b=m_xls->writeCurrentSheet(saveDatas);
-    debugText(QString("writeCurrentSheet %1").arg(b));
+    myDebugText(QString("writeCurrentSheet %1").arg(b));
 
     QRegExp exp("(.*/)(.*)(\\.xls)");
     int pos = exp.indexIn(xlsFile);
@@ -174,7 +174,7 @@ void MainWidget::on_pushButtonOpen_clicked()
     }else
         savePathName = dateTime+".xls";
     m_xls->saveAs(savePathName);
-    debugText("另存为 "+savePathName);
+    myDebugText("另存为 "+savePathName);
 
     m_xls->close();
 }
@@ -220,7 +220,7 @@ void MainWidget::on_pushButton_clicked()
     m_xls->save();
 }
 
-void MainWidget::debugText(const QString &s)
+void MainWidget::myDebugText(const QString &s)
 {
     ui->plainTextEdit->appendPlainText(s);
 }

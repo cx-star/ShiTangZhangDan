@@ -10,7 +10,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = ShiTangZhangDan
 TEMPLATE = app
-
+PRECOMPILED_HEADER += utf8.h
 
 SOURCES += main.cpp\
         mainwidget.cpp \
@@ -19,9 +19,10 @@ SOURCES += main.cpp\
 
 HEADERS  += mainwidget.h \
     ExcelBase.h \
-    QVariantListListModel.h
+    QVariantListListModel.h \
+    utf8.h
 
 FORMS    += mainwidget.ui
 
 DISTFILES += \
-    C:/Users/cx/Desktop/20170621-20170720��-ԭʼ.xls
+    C:/Users/cx/Desktop/20170621-20170720旧-原始.xls

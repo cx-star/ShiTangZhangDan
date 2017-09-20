@@ -97,7 +97,7 @@ void MainWidget::on_pushButtonOpen_clicked()
                 break;
             }
         }
-        myDebugText("提取完毕："+(type==Xin)?"新":"旧");
+        myDebugText(QString("提取完毕：%1").arg((type==Xin)?"新":"旧"));
         qDebug()<<numInDate5;
         qDebug()<<numInDate10;
         qDebug()<<numInDate0;
@@ -175,6 +175,7 @@ void MainWidget::on_pushButtonOpen_clicked()
         savePathName = dateTime+".xls";
     m_xls->saveAs(savePathName);
     myDebugText("另存为 "+savePathName);
+    myDebugText("单元格边框——页眉页脚——所有列放在一页——适当调整边距");
 
     m_xls->close();
 }

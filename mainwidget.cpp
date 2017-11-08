@@ -175,7 +175,7 @@ void MainWidget::on_pushButtonOpen_clicked()
         savePathName = dateTime+".xls";
     m_xls->saveAs(savePathName);
     myDebugText("另存为 "+savePathName);
-    myDebugText("单元格边框——页眉页脚——所有列放在一页——适当调整边距");
+    myDebugText("单元格加框——页眉页脚中设置页码——所有列放在一页——适当调整上下边距");
 
     m_xls->close();
 }
